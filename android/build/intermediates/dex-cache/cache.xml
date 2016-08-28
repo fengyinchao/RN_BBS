@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\internal_impl-23.2.1-cda4dae31fd719247994855006b9d787935f266e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\okio-1.9.0-db0545b090bbd931e1cf6e43202e038727277a7d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.0\5871fb60dc68d67da54a663c3fd636a10a532948\jsr305-3.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\jsr305-3.0.0-a971f67c50848f35eab062a5cec0856f32aa537b.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-e67d43f8499d2bff6c4435454140e83a8be2f141.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-b9a9fc8458c9fcaa3c89e52a6e7e900b183d5070.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\okhttp-3.4.1-a3a718343956c6e4d917a53a4fdd4a4dc134cda5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0-c64325f78a24c085b700c554244dc03fa6bc6a89.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-8480c76e6ca944732fb1449c3a32ab7516ca8380.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.soloader\soloader\0.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-2405051e7ef2e67f8de151b2542bcd5e5706e459.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-ws\3.4.1\8ace66ef7002d98f633377c9e67daeeb196d8c3b\okhttp-ws-3.4.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\okhttp-ws-3.4.1-fe83462a5d206d9870f1dd3ec3f8349b06d7cb1f.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-19b775529de3f40667755b08796fdd91d84e87c4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\support-annotations-23.2.1-426ad47b0c180737bc1d40c89628bab5d90287f2.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2b8a01ad9da5d26d0067894c22e87597bca2c500">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-99b54f3a473d54a6da53b60752a4823c2e4bb040.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.4.1\63994437f62bc861bc20c605d12962f7246116d1\okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-3.4.1-8c53f11782c30ceeab64a97cd78f9c7aa80afcf8.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.31.0\jars\libs\infer-annotations-1.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="841543b0cb82ebcb59e60c73c4514afa57888ca0">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\infer-annotations-1.5-9419bf2ef868298b70487b2cc24cabe281afbb8f.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.31.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8505ca79a0abc3ef116f9c197b7d721ee2453066">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-3190a3c11a2982415fa33ebed0e84c410f9915ee.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-2c46bb42d5cdd4d39c812c1d61becb938a54e25e.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-20a957ef4bb2f770c9eed6086fa76b04a414a307.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-54491066520b5cf5c955b978f6a645bde6c547d0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.3\1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14\jackson-core-2.2.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\jackson-core-2.2.3-d5dacd838dee6932fa69cd0033c594b1864bb1cd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\library-2.4.0-dd460f45d27a359687729c3c169358b1eda3100b.jar" />
+    </item>
+    <item
+        jar="E:\RN_P\BBS\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
+        <dex dex="E:\RN_P\BBS\android\app\build\intermediates\pre-dexed\debug\classes-1ba51b315149cf6342b0449e636753f458e983bf.jar" />
+    </item>
+
+</items>

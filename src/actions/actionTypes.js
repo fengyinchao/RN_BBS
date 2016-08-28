@@ -1,0 +1,40 @@
+/**
+ * Created by jason  on 16/7/14.
+ * action类型
+ */
+
+// //详情页actions
+// export const FETCH_DETIAL_DATE = 'FETCH_DETIAL_DATE';
+// export const RECEIVE_DETIAL_DATE = 'RECEIVE_DETIAL_DATE';
+
+//图片详细页actions
+
+export const FETCH_PICTUREDETAIL_LIST = 'FETCH_PICTUREDETAIL_LIST';
+export const RECEIVE_PICTUREDETAIL_LIST = 'RECEIVE_PICTUREDETAIL_LIST';
+export const RESET_PICTUREDETAIL_STATE = 'RESET_PICTUREDETAIL_STATE'; 
+
+//笑话 actions
+
+export const FETCH_JOKE_LIST = 'FETCH_JOKE_LIST';
+export const RECEIVE_JOKE_LIST = 'RECEIVE_JOKE_LIST';
+export const RESET_JOKE_STATE = 'RESET_JOKE_STATE';
+
+//新闻 actions
+
+export const FETCH_NEWS_LIST = 'FETCH_NEWS_LIST';
+export const RECEIVE_NEWS_LIST = 'RECEIVE_NEWS_LIST';
+export const RESET_NEWS_STATE = 'RESET_NEWS_STATE';
+
+//天气 actions
+
+export const FETCH_WEATHER_LIST = 'FETCH_WEATHER_LIST';
+export const RECEIVE_WEATHER_LIST = 'RECEIVE_WEATHER_LIST';
+export const RESET_WEATHER_STATE = 'RESET_WEATHER_STATE';
+
+//图片actions
+export const FETCH_PICTURE_LIST = 'FETCH_PICTURE_LIST';
+export const RECEIVE_PICTURE_LIST = 'RECEIVE_PICTURE_LIST';
+
+//八卦actions
+export const FETCH_GOSSIP_LIST = 'FETCH_GOSSIP_LIST';
+export const RECEIVE_GOSSIP_LIST = 'RECEIVE_GOSSIP_LIST';
