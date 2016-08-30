@@ -17,6 +17,7 @@ import {
     TouchableHighlight
 } from 'react-native';
 import style from './style';
+
 import Hot from '../page/hot/hot';
 import Sider from '../slider/sider';
 import Common from '../common/common';
@@ -65,7 +66,7 @@ class Tab extends Component{
 
 class Selector extends Component{
     render(){
-        let arr = ["八卦","图片","笑话","新闻","更多"];
+        let arr = ["八卦","美图","笑话","新闻","更多"];
         return(
             <View style={style.selector}>
                 {arr.map((name,index)=><Tab text={name} index={index}/>)}
@@ -95,7 +96,7 @@ class ViewPager extends Component{
                     <Gossip navigator={this.props.navigator}/>
                 </View>
                 <View>
-                     <Picture navigator={this.props.navigator}/>
+                    <Picture navigator={this.props.navigator}/>
                 </View>
                 <View>
                     <Joke navigator={this.props.navigator}/>
@@ -103,8 +104,8 @@ class ViewPager extends Component{
                 <View>
                     <News navigator={this.props.navigator}/>
                 </View>
-                <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-                    <Text style={{fontSize:30,color:'white'}}>敬请期待!!</Text>
+                <View style={{alignItems:'center',justifyContent:'center',flex:1}}>
+                    <View><Text style={{fontSize:30,color:'black'}}>敬请期待!!</Text></View>
                 </View>
             </ViewPagerAndroid>
         );
@@ -161,9 +162,7 @@ class main extends Component{
                 renderNavigationView={(()=>{return this.navigationView})()}
                 >
                 <View style={{flex:1}}>
-                    <View style={{position:"absolute",flex:1,width:Dimensions.get('window').width,top:0}}>
-                        <View style={style.header}>
-
+                    <View style={style.header}>
                             <View style={style.headerLeft}>
                                 <TouchableWithoutFeedback onPress={this._openDrawer.bind(this)}>
                                     <View style={{flexDirection:"row"}}>
@@ -174,10 +173,9 @@ class main extends Component{
                                     </View>
                                 </TouchableWithoutFeedback>
                             </View>
-                        </View>
-                        <Selector/>
+                            <Selector/>
                     </View>
-                    <View style={{backgroundColor:'lightgray',flex:1,position:"relative",top:95}}>
+                    <View style={{flex:1,}}>
                         <ViewPager navigator={this.props.navigator}/>
                     </View>
                 </View>

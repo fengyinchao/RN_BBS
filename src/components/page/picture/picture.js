@@ -56,7 +56,7 @@ class Picture extends Component {
    const { Picture,rowDate } = this.props;
     // console.log(('this.props'+JSON.stringify(this.props)));
     // debugger
-    let pictureList = Picture.PictureList;
+    let pictureList = Picture.PictureList.slice(0,15);
     // console.log('picturelist='+JSON.stringify(pictureList))
     let titleName = '最新';
     return (
@@ -66,8 +66,12 @@ class Picture extends Component {
             dataSource={this.state.dataSource.cloneWithRows(pictureList) }
             renderRow={this._renderRow}
             contentContainerStyle={styles.list}
+            // style={{flexDirection:'row'}}
             enableEmptySections={true}
-            initialListSize= {13}
+            onEndReached={this._onEndReach.bind(this) }
+            onEndReachedThreshold={(Const.window.height-105)/4}
+            initialListSize= {14}
+            // pageSize={2}
             onScroll={this._onScroll}
             style={styles.listView}
             refreshControl={
@@ -119,6 +123,8 @@ class Picture extends Component {
   }
 
   _renderRow(rowDate) {
+    var h=parseInt((Const.window.height-100)/5);
+  // alert(h)
     return (
       <View style={styles.container}>
         <TouchableOpacity
@@ -144,22 +150,27 @@ class Picture extends Component {
         });
       }
 }
+function get(){
+  var h=parseInt(Const.window.height-120)/5;
+  alert(h)
+  return h;
+}
 
 const styles = StyleSheet.create({
   container: {
     width: Const.window.width/3 ,
-    height: Const.window.height/6 ,
+    height: get() ,
     justifyContent: 'center',
     alignItems: 'center',
     // marginLeft:10,
     borderWidth:1,
     borderColor:'white',
+    backgroundColor: 'lightblue',
     overflow:'hidden'
   },
   listView: {
-    backgroundColor: 'lightblue',
-    height: Const.window.height - 44 - 60 - 20,
-    borderRadius:20
+    // backgroundColor: 'red',
+    height:Const.window.height-100 ,
   },
   title: {
     color: 'black',
@@ -180,7 +191,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
-    borderRadius:20
 
   },
   row:{

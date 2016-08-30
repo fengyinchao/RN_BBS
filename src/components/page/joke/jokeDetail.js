@@ -65,8 +65,8 @@ container:{
   text: {
     marginTop:20,
     fontSize:16,
-    overflow:'hidden',
-    lineHeight:30,
+    // overflow:'hidden',
+    // lineHeight:30,
     textIndent:10
   },
   row:{

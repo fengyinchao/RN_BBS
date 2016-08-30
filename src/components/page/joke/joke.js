@@ -129,7 +129,7 @@ class Joke extends Component {
           onPress={this._onPressFeedItem.bind(this,rowDate) }
           >
           <View style={styles.row}>
-              <Text style={styles.title}>{rowDate.title}</Text>
+              <Text style={styles.title}>{rowDate.title.length>14?(rowDate.title.substring(0,14)+'...'):rowDate.title}</Text>
               <Text style={styles.time}>{rowDate.ct.substring(0,16)}</Text>
           </View>
           <Text style={styles.text}>{rowDate.text}</Text>

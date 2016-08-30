@@ -31,13 +31,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: (Const.window.height-80)/2,
+        top: (Const.window.height-185)/2,
         left: (Const.window.width-100)/2,
     },
 
     loadingTitle: {
         marginTop: 10,
-        fontSize: 14,
+        fontSize: 16,
         color: 'white'
     }
 })

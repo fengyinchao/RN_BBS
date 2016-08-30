@@ -36,7 +36,6 @@ class newsDetail extends Component{
                 <View style={styles.container}>
                    <View style={styles.row}>
                       <Text style={styles.title}>{rowDate.title}</Text>
-                      <Text style={styles.time}>{rowDate.url.substring(0,16)}</Text>
                   </View>
                   <Text style={styles.text}>{rowDate.abstract}</Text>
                 </View>
@@ -52,6 +51,7 @@ container:{
 },
   title: {
     color: 'black',
+
     fontSize:18,
   },
   titleStyle:{
@@ -70,7 +70,7 @@ container:{
     textIndent:10
   },
   row:{
-    flexDirection:'row',
+     // flexWrap:'wrap',
     borderBottomWidth:2,
     borderBottomColor:'lightgray'
   }

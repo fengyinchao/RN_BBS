@@ -18,7 +18,7 @@ class bbs extends Component{
     render(){
         return(
             <Navigator
-                initialRoute={{name:"splash",component:splash}}
+                initialRoute={{name:"main",component:main}}
                 renderScene={
                     (route,navigator) =>{
                         _navigator = navigator;

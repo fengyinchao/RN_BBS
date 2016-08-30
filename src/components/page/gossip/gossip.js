@@ -29,7 +29,7 @@ import {
   gossip,
 } from '../../../actions/gossipAction';
 let page = 1;
-let num=10;
+let num=5;
 let isLoadMore = false;
 let isRefreshing = false;
 let isLoading = true;
@@ -53,39 +53,7 @@ class Gossip extends Component {
     })
   }
 
-  render() {
-   const { Gossip,rowDate } = this.props;
-    // console.log(('this.props'+JSON.stringify(this.props)));
-    // debugger
-    let gossipList = Gossip.GossipList;
-    // console.log('gossiplist='+JSON.stringify(gossipList))
-    let titleName = '最新';
-    return (
-      <View>
-        {Gossip.isLoading ? <Loading /> :
-          <ListView
-            dataSource={this.state.dataSource.cloneWithRows(gossipList) }
-            renderRow={this._renderRow}
-            contentContainerStyle={styles.list}
-            enableEmptySections={true}
-            initialListSize= {10}
-            onScroll={this._onScroll}
-            onEndReached={this._onEndReach.bind(this) }
-            onEndReachedThreshold={10}
-            renderFooter={this._renderFooter.bind(this) }
-            style={styles.listView}
-            refreshControl={
-              <RefreshControl
-                onRefresh={this._onRefresh.bind(this) }
-                title="正在加载中……"
-                color="#ccc"
-                />
-            }
-            />
-        }
-      </View>
-    );
-  }
+  
 
 
 
@@ -97,6 +65,7 @@ class Gossip extends Component {
   }
 
   _onScroll() {
+    
     if (!isLoadMore) isLoadMore = true;
   }
 
@@ -112,16 +81,46 @@ class Gossip extends Component {
 
   // 上拉加载
   _onEndReach() {
+    // alert('onendreach')
     InteractionManager.runAfterInteractions(() => {
       const {dispatch, Gossip} = this.props;
       let gossipList = Gossip.GossipList;
       isLoadMore = true;
       isLoading = false;
-      offest = gossipList[gossipList.length - 1].seq
+      // offest = gossipList[gossipList.length - 1].seq
       dispatch(gossip(page, isLoadMore, isRefreshing, isLoading));
     })
   }
 
+render() {
+   const { Gossip,rowDate } = this.props;
+    let gossipList = Gossip.GossipList;
+
+    return (
+      <View>
+        {Gossip.isLoading ? <Loading /> :
+          <ListView
+            dataSource={this.state.dataSource.cloneWithRows(gossipList) }
+            renderRow={this._renderRow}
+            enableEmptySections={true}
+            initialListSize= {5}
+            onScroll={this._onScroll}
+            onEndReached={this._onEndReach.bind(this) }
+            onEndReachedThreshold={(Const.window.height-105)/4}
+            renderFooter={this._renderFooter.bind(this) }
+            style={styles.listView}
+            refreshControl={
+              <RefreshControl
+                onRefresh={this._onRefresh.bind(this) }
+                title="正在加载中……"
+                color="#ccc"
+                />
+            }
+            />
+        }
+     </View>
+   );
+}
   _renderRow(rowDate) {
     return ( 
         <TouchableOpacity
@@ -156,9 +155,12 @@ class Gossip extends Component {
 }
 
 const styles = StyleSheet.create({
+  listView: {
+    height:Const.window.height-120,
+  },
   container: {
     width: Const.window.width ,
-    height: Const.window.width/3 ,
+    height: (Const.window.height-120)/4 ,
     alignItems: 'center',
     paddingLeft:20,
     paddingRight:20,
@@ -172,12 +174,10 @@ const styles = StyleSheet.create({
     flex:1,
   },
   right:{
+    marginLeft:20,
     flex:2,
   },
-  listView: {
-    backgroundColor: '#F5FCFF',
-    height: Const.window.height - 44 - 60 - 20,
-  },
+
   title: {
     color: 'black',
     fontSize:16,
