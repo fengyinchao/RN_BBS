@@ -29,10 +29,11 @@ class gossipDetail extends Component{
       <View>
                <HeaderView
                 title= {name}
-                leftIcon={ 'angle-left'}
+                leftIcon={ 'arrow-left'}
                 leftIconStyle={styles.leftIconStyle}
                 leftIconAction={this.back.bind(this)}
                 titleStyle={styles.titleStyle}
+                rightIcon={['heart','reply','share-alt']}
                 />
                 <View style={styles.container}>
                       <WebView style={styles.webview_style} 

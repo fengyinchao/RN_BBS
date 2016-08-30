@@ -8,6 +8,7 @@ import {
   InteractionManager,
   RefreshControl,
   Navigator,
+  ScrollView,
 } from 'react-native';
 import Const from '../../common/const';
 
@@ -28,17 +29,21 @@ class jokeDetail extends Component{
       <View>
                <HeaderView
                 title= {name}
-                leftIcon={ 'angle-left'}
+                leftIcon={ 'arrow-left'}
                 leftIconStyle={styles.leftIconStyle}
                 leftIconAction={this.back.bind(this)}
                 titleStyle={styles.titleStyle}
+                rightIcon={['heart','reply','share-alt']}
                 />
                 <View style={styles.container}>
-                   <View style={styles.row}>
-                      <Text style={styles.title}>{rowDate.title}</Text>
-                      <Text style={styles.time}>{rowDate.ct.substring(0,16)}</Text>
-                  </View>
-                  <Text style={styles.text}>{rowDate.text}</Text>
+                         <ScrollView>
+                             <View style={styles.row}>
+                                <Text style={styles.title}>{rowDate.title}</Text>
+                            </View>
+                            <View style={styles.content}>
+                                <Text style={styles.text}>{rowDate.text}</Text>
+                            </View>
+                        </ScrollView>
                 </View>
       </View>
     )
@@ -46,33 +51,38 @@ class jokeDetail extends Component{
 }
 const styles = StyleSheet.create({
 container:{
-  marginTop:40,
-  paddingLeft:30,
-  paddingRight:30
+  height:500
 },
   title: {
-    color: 'black',
-    fontSize:18,
+    color: 'white',
+    fontSize:22,
+
   },
   titleStyle:{
     fontSize:20,
     color:'white'
   },
   time: {
-   fontSize:16,
-   marginLeft:40
+   fontSize:18,
+   marginLeft:40,
+     color:'white'
+  },
+ content:{
+    marginTop:20,
+    paddingLeft:20,
+    paddingRight:20,
   },
   text: {
-    marginTop:20,
     fontSize:16,
     // overflow:'hidden',
-    // lineHeight:30,
-    textIndent:10
+    lineHeight:26,
+    color:'black'
   },
   row:{
-    flexDirection:'row',
-    borderBottomWidth:2,
-    borderBottomColor:'lightgray'
+    backgroundColor:'#2196F3',
+    height:100,
+   justifyContent:'center',
+    paddingLeft:20
   }
 
 });

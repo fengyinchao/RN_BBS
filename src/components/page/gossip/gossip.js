@@ -17,6 +17,7 @@ import {
   InteractionManager,
   RefreshControl,
   Navigator,
+  PixelRatio,
 } from 'react-native';
 
 import {connect} from 'react-redux'
@@ -129,7 +130,7 @@ render() {
           onPress={this._onPressFeedItem.bind(this,rowDate) }
           >
           <View style={styles.left}>
-              <Image source={{uri:rowDate.picUrl}} resizeMode={'cover'} style={{height:100,width:100,}}/> 
+              <Image source={{uri:rowDate.picUrl}} resizeMode={'cover'} style={{height:PixelRatio.getPixelSizeForLayoutSize(100),width:PixelRatio.getPixelSizeForLayoutSize(100),}}/> 
           </View>
            <View style={styles.right}>
               <Text style={styles.title}>{rowDate.title}</Text>

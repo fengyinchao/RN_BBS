@@ -27,13 +27,11 @@ module.exports = StyleSheet.create({
         alignItems:'center'
     },
     icon:{
-        height:12.5,
         width:20,
-        left:10,
-        marginTop:10
+        left:20,
     },
     username:{
-        fontSize:20,
+        fontSize:22,
         color:"#ffffff",
         left:20
     },
@@ -58,7 +56,8 @@ module.exports = StyleSheet.create({
     selectText:{
         textAlign:"center",
         color:"white",
-        marginTop:10
+        marginTop:10,
+        fontSize:18,
     },
     container:{
         backgroundColor:"#00bfff",

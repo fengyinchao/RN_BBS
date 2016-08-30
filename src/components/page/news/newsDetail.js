@@ -8,6 +8,7 @@ import {
   InteractionManager,
   RefreshControl,
   Navigator,
+  ScrollView
 } from 'react-native';
 import Const from '../../common/const';
 
@@ -28,52 +29,54 @@ class newsDetail extends Component{
       <View>
                <HeaderView
                 title= {name}
-                leftIcon={ 'angle-left'}
+                leftIcon={ 'arrow-left'}
                 leftIconStyle={styles.leftIconStyle}
                 leftIconAction={this.back.bind(this)}
-                titleStyle={styles.titleStyle}
+                rightIcon={['heart','reply','share-alt']}
                 />
                 <View style={styles.container}>
-                   <View style={styles.row}>
-                      <Text style={styles.title}>{rowDate.title}</Text>
-                  </View>
-                  <Text style={styles.text}>{rowDate.abstract}</Text>
+                        <ScrollView>
+                            <View style={styles.row}>
+                                <Text style={styles.title}>{rowDate.title}</Text>
+                            </View>
+                            <View style={styles.content}>
+                                  <Text style={styles.text}>{rowDate.abstract}</Text>
+                            </View>
+                        </ScrollView>
                 </View>
+
       </View>
     )
   }
 }
 const styles = StyleSheet.create({
 container:{
-  marginTop:40,
-  paddingLeft:30,
-  paddingRight:30
+  height:200
 },
+row:{
+    backgroundColor:'#2196F3',
+    height:100,
+    // flexDirection:'row',
+    // alignItems:'center',
+    justifyContent:'center',
+    paddingLeft:20,
+    flexWrap:'wrap'
+  },
   title: {
-    color: 'black',
-
-    fontSize:18,
+    color: 'white',
+    fontSize:22,
   },
-  titleStyle:{
-    fontSize:20,
-    color:'white'
-  },
-  time: {
-   fontSize:16,
-   marginLeft:40
+  content:{
+    marginTop:20,
+    paddingLeft:20,
+    paddingRight:20,
   },
   text: {
-    marginTop:20,
     fontSize:16,
-    overflow:'hidden',
-    lineHeight:30,
-    textIndent:10
+    lineHeight:26,
+    color:'black'
   },
-  row:{
-     // flexWrap:'wrap',
-    borderBottomWidth:2,
-    borderBottomColor:'lightgray'
-  }
+  
 
 });
 export default newsDetail;

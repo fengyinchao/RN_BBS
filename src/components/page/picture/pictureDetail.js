@@ -62,8 +62,10 @@ class PictureDetail extends Component {
     return (
       <View>
         <HeaderView title={titleName}
-        leftIcon={'angle-left'}
-        leftIconAction={() => this.props.navigator.pop() }/>
+        leftIcon={'arrow-left'}
+        leftIconAction={() => this.props.navigator.pop() }
+        rightIcon={['heart','reply','share-alt']}
+        />
         {PictureDetail.isLoading ? <Loading /> :
           <ListView
             dataSource={this.state.dataSource.cloneWithRows(pictureDetailList) }

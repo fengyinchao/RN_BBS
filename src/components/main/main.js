@@ -165,7 +165,7 @@ class main extends Component{
                     <View style={style.header}>
                             <View style={style.headerLeft}>
                                 <TouchableWithoutFeedback onPress={this._openDrawer.bind(this)}>
-                                    <View style={{flexDirection:"row"}}>
+                                    <View style={{flexDirection:"row",alignItems:'center'}}>
                                         <Image source={require('./img/ic_navigation_drawer.png')} style={style.icon} resizeMode={"contain"}/>
                                         <View style={{flexDirection:"row",width:200}}>
                                             <Text style={style.username}>首页</Text>

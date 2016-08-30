@@ -28,7 +28,7 @@ export default class Header extends React.Component {
                     style={[styles.leftIcon,this.props.leftIconStyle?this.props.leftIconStyle:'']}
                     onPress={this.props.leftIconAction}
                     >
-                    <Icon color="black" size={30} name={this.props.leftIcon}/>
+                    <Icon color="white" size={20} name={this.props.leftIcon}/>
                 </TouchableOpacity>
             )
         }
@@ -39,6 +39,29 @@ export default class Header extends React.Component {
                 <Text key={'title'} style={[styles.title,this.props.titleStyle?this.props.titleStyle:'']}>{this.props.title}</Text>
             )
          }
+
+        // 右边图片按钮
+        if (this.props.rightIcon != undefined) {
+            let arr=this.props.rightIcon;
+            let arr_template=[];
+            arr.map((item,index)=>{
+                // alert(item)
+                    arr_template.push(
+                        <TouchableOpacity
+                            activeOpacity={0.75}
+                            style={styles.leftIcon}
+                            onPress={this.props.leftIconAction}
+                            >
+                            <Icon color="white" size={20} name={item}/>
+                        </TouchableOpacity>
+                    )
+            })
+            NavigationBar.push(
+                <View style={styles.rightIcon}>
+                    {arr_template}
+                </View>
+            )
+        }
 
         return (
             <View style={styles.navigationBarContainer}>
@@ -51,19 +74,22 @@ export default class Header extends React.Component {
 const styles = StyleSheet.create({
 
     navigationBarContainer: {
-        // marginTop: 20,
         flexDirection: 'row',
         height: 80,
-        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2196F3'
+        backgroundColor: '#2196F3',
+        paddingLeft:20,
+        paddingRight:20
     },
     title: {
-        fontSize: 15,
+       fontSize:20,
+        color:'white'
     },
-    leftIcon: {
-       left: -Const.window.width/2+90,
-       width:40,
-       height:40
+    leftIcon:{
+        width:60
+    },
+    rightIcon:{
+        flexDirection:'row',
+        marginLeft:Const.window.width*0.3,
     }
 })
