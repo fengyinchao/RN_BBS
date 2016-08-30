@@ -7,33 +7,30 @@ module.exports = StyleSheet.create({
     container:{
         backgroundColor:"#fafafa"
     },
-    touch:{
-        flex:1,
-        height:45,
-        paddingHorizontal:15,
-        justifyContent:"center"
-        // alignItems:"center"
+    group:{
+        // paddingVertical:10,
+        borderBottomWidth:1,
+        borderBottomColor:"#d9d9d9",
+        paddingBottom:20,
+        paddingTop:20
+
+    },
+     activeTouch:{
+        backgroundColor:"#fafafa"
     },
     cell:{
-        flexDirection:"row"
+        flexDirection:"row",
+        alignItems:'center',
+        height:45,
+        paddingLeft:40,
+       // backgroundColor:'red'
     },
     icon:{
         width:25,
         height:25,
-        tintColor:"#7f7f7f"
     },
-    group:{
-        paddingVertical:10,
-        borderBottomWidth:1,
-        borderBottomColor:"#d9d9d9"
-    },
-    activeTouch:{
-        flex:1,
-        height:45,
-        paddingHorizontal:15,
-        justifyContent:"center",
-        backgroundColor:"#d4d4d4"
-    },
+
+   
     activeText:{
         marginLeft:30,
         marginTop:2,

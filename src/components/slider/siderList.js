@@ -14,6 +14,7 @@ import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter';
 import style from './listStyle';
 
 import DownManager from '../downManager/downManager';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 //之前用的闭包计数器，但是不一定准确，所以放弃使用
 var Counter=(function(){
@@ -26,30 +27,17 @@ var Counter=(function(){
 class icon {
     constructor(){
         this.sources = [
-            <Image source={require("./img/ic_home_black_24dp.png")}  style={style.icon}/>,
-            <Image source={require("./img/ic_file_download_black_24dp.png")}  style={style.icon}/>,
-            <Image source={require("./img/ic_star_black_24dp.png")}  style={style.icon}/>,
-            <Image source={require("./img/ic_history_black_24dp.png")}  style={style.icon}/>,
-            <Image source={require("./img/ic_people_black_24dp.png")}  style={style.icon}/>,
-            <Image source={require("./img/ic_account_balance_wallet_black_24dp.png")}  style={style.icon}/>,
-            <Image source={require("./img/ic_color_lens_black_24dp.png")}  style={style.icon}/>,
-            <Image source={require("./img/ic_shop_black_24dp.png")}  style={style.icon}/>,
-            <Image source={require("./img/ic_settings_black_24dp.png")}  style={style.icon}/>
-        ];
-        this.actSources = [
-            <Image source={require("./img/ic_home_black_24dp.png")}  style={style.actIcon}/>,
-            <Image source={require("./img/ic_file_download_black_24dp.png")}  style={style.actIcon}/>,
-            <Image source={require("./img/ic_star_black_24dp.png")}  style={style.actIcon}/>,
-            <Image source={require("./img/ic_history_black_24dp.png")}  style={style.actIcon}/>,
-            <Image source={require("./img/ic_people_black_24dp.png")}  style={style.actIcon}/>,
-            <Image source={require("./img/ic_account_balance_wallet_black_24dp.png")}  style={style.actIcon}/>,
-            <Image source={require("./img/ic_color_lens_black_24dp.png")}  style={style.actIcon}/>,
-            <Image source={require("./img/ic_shop_black_24dp.png")}  style={style.actIcon}/>,
-            <Image source={require("./img/ic_settings_black_24dp.png")}  style={style.actIcon}/>
+            <Icon color="black" size={20} name={'home'} style={style.icon} />,
+            <Icon color="black" size={20} name={'th'} style={style.icon} />,
+            <Icon color="black" size={20} name={'comment'} style={style.icon} />,
+            <Icon color="black" size={20} name={'envelope'} style={style.icon} />,
+            <Icon color="black" size={20} name={'map'} style={style.icon} />,
+            <Icon color="black" size={20} name={'user'} style={style.icon} />,
+            <Icon color="black" size={20} name={'gear'} style={style.icon} />,
         ];
     }
-    getImage(index,active){
-        return active?this.actSources[index]:this.sources[index];
+    getImage(index){
+        return this.sources[index];
     }
 }
 
@@ -90,11 +78,11 @@ class Cell extends Component{
             active = true;
         }
         return(
-            <TouchableHighlight underlayColor={"#e0e0e0"} style={active?style.activeTouch:style.touch}
+            <TouchableHighlight underlayColor={"#e0e0e0"} style={active?style.activeTouch:''}
             onPress={this._press.bind(this)}>
                 <View style={style.cell}>
-                    {temp.getImage(this.index,active)}
-                    <Text style={active?style.activeText:{color:"#343434",marginLeft:30,marginTop:2}}>{this.props.name}</Text>
+                    {temp.getImage(this.index)}
+                    <Text style={{color:"#343434",marginLeft:30}}>{this.props.name}</Text>
                 </View>
             </TouchableHighlight>
         );
@@ -108,18 +96,16 @@ class list extends Component{
             <View style={style.container}>
                 <View style={style.group}>
                     <Cell name={"首页"} index={0}/>
-                    <Cell name={"离线缓存"} index={1} navi={this.props.navi}/>
+                    <Cell name={"全部版面"} index={1} navi={this.props.navi}/>
                 </View>
                 <View style={style.group}>
-                    <Cell name={"我的收藏"} index={2} navi={this.props.navi}/>
-                    <Cell name={"历史记录"} index={3} navi={this.props.navi}/>
-                    <Cell name={"关注的人"} index={4} navi={this.props.navi}/>
-                    <Cell name={"我的钱包"} index={5} navi={this.props.navi}/>
+                    <Cell name={"我的动态"} index={2} navi={this.props.navi}/>
+                    <Cell name={"我的信件"} index={3} navi={this.props.navi}/>
+                    <Cell name={"我的文章"} index={4} navi={this.props.navi}/>
+                    <Cell name={"我的好友"} index={5} navi={this.props.navi}/>
                 </View>
-                <View style={[{paddingVertical:10},style.group]}>
-                    <Cell name={"主题选择"} index={6} navi={this.props.navi}/>
-                    <Cell name={"应用推荐"} index={7} navi={this.props.navi}/>
-                    <Cell name={"设置与帮助"} index={8} navi={this.props.navi}/>
+                <View style={style.group}>
+                    <Cell name={"设置"} index={6} navi={this.props.navi}/>
                 </View>
             </View>
         );

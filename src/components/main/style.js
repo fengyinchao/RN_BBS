@@ -9,16 +9,11 @@ module.exports = StyleSheet.create({
         backgroundColor:"#2196F3",
         width:Const.window.width,
         height:120,
-        justifyContent:"space-between",
-        // paddingTop:6,
-        // paddingBottom:6
     },
     headerLeft:{
-        flexDirection:"row",
-        // backgroundColor:"red",
         height:60,
-        alignItems:'center'
-        // paddingTop:11
+        // alignItems:'center',
+        justifyContent:'center',
     },
     selector:{
         // backgroundColor:"red",
@@ -28,12 +23,12 @@ module.exports = StyleSheet.create({
     },
     icon:{
         width:20,
-        left:20,
+        marginLeft:20,
     },
     username:{
         fontSize:22,
         color:"#ffffff",
-        left:20
+        marginLeft:30
     },
     selectTab:{
         flex:1,

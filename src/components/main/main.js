@@ -28,6 +28,8 @@ import Weather from '../page/weather/weather';
 import Gossip from '../page/gossip/gossip';
 import DownManager from '../downManager/downManager';
 import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter';
+import Const from '../common/const';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Tab extends Component{
     constructor(props){
@@ -166,10 +168,13 @@ class main extends Component{
                             <View style={style.headerLeft}>
                                 <TouchableWithoutFeedback onPress={this._openDrawer.bind(this)}>
                                     <View style={{flexDirection:"row",alignItems:'center'}}>
-                                        <Image source={require('./img/ic_navigation_drawer.png')} style={style.icon} resizeMode={"contain"}/>
-                                        <View style={{flexDirection:"row",width:200}}>
+                                        <Icon color="white" size={20} name={'navicon'} style={style.icon} />
+                                        <View>
                                             <Text style={style.username}>首页</Text>
                                         </View>
+                                        <Icon color="white" size={20} name={'bold'} style={{marginLeft:Const.window.width*0.4}} />
+                                        <Icon color="white" size={20} name={'bold'} />
+                                        <Icon color="white" size={20} name={'dollar'} />
                                     </View>
                                 </TouchableWithoutFeedback>
                             </View>

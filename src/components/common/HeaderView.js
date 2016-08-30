@@ -86,10 +86,12 @@ const styles = StyleSheet.create({
         color:'white'
     },
     leftIcon:{
-        width:60
+        width:40
     },
     rightIcon:{
         flexDirection:'row',
-        marginLeft:Const.window.width*0.3,
+        position:'absolute',
+        top:30,
+        right:0
     }
 })

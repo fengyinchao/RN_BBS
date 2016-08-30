@@ -17,13 +17,15 @@ module.exports = StyleSheet.create({
         height:165
     },
     left:{
-        marginVertical:20,
-        // marginHorizontal:1,
-        // backgroundColor:'red'
+        alignItems:'center',
+        // justifyContent:'center',
+        marginLeft:20,
+        flexDirection:'row',
+        height:165,
     },
     user:{
-        flexDirection:"row",
-        marginTop:10
+        // flexDirection:"row",
+        marginLeft:30
     },
     faceTouch:{
     },
@@ -35,11 +37,9 @@ module.exports = StyleSheet.create({
         backgroundColor:"#ffffff"
     },
     status:{
-        alignItems:"center",
-        justifyContent:"center",
         backgroundColor:"#A6D5FA",
-        width:42,
-        height:13,
+        width:62,
+        height:23,
         borderRadius:10,
         marginVertical:3
     },
