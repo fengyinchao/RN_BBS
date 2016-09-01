@@ -130,7 +130,7 @@ render() {
           onPress={this._onPressFeedItem.bind(this,rowDate) }
           >
           <View style={styles.left}>
-              <Image source={{uri:rowDate.picUrl}} resizeMode={'cover'} style={{height:Const.window.height/5,width:Const.window.height/5}}/> 
+              <Image source={{uri:rowDate.picUrl}} resizeMode={'cover'} style={{height:Const.window.height/10,width:Const.window.height/10}}/> 
           </View>
            <View style={styles.right}>
               <Text style={styles.title}>{rowDate.title}</Text>

@@ -51,7 +51,7 @@ class newsDetail extends Component{
 }
 const styles = StyleSheet.create({
 container:{
-  height:200
+  height:500
 },
 row:{
     backgroundColor:'#2196F3',

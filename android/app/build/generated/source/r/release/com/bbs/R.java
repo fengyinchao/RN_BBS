@@ -1840,7 +1840,7 @@ containing a value of this type.
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f02003c;
         public static final int abc_textfield_search_material=0x7f02003d;
         public static final int node_modules_reactnative_libraries_customcomponents_navigationexperimental_assets_backicon=0x7f02003e;
-        public static final int notification_template_icon_bg=0x7f020055;
+        public static final int notification_template_icon_bg=0x7f020056;
         public static final int src_components_main_img_ic_navigation_drawer=0x7f02003f;
         public static final int src_components_page_hot_img_195916=0x7f020040;
         public static final int src_components_page_hot_img_195918=0x7f020041;
@@ -1848,21 +1848,22 @@ containing a value of this type.
         public static final int src_components_page_hot_img_195954=0x7f020043;
         public static final int src_components_slider_img_bili_drawerbg_logined=0x7f020044;
         public static final int src_components_slider_img_bili_drawerbg_not_logined=0x7f020045;
-        public static final int src_components_slider_img_face=0x7f020046;
-        public static final int src_components_slider_img_ic_account_balance_wallet_black_24dp=0x7f020047;
-        public static final int src_components_slider_img_ic_color_lens_black_24dp=0x7f020048;
-        public static final int src_components_slider_img_ic_file_download_black_24dp=0x7f020049;
-        public static final int src_components_slider_img_ic_history_black_24dp=0x7f02004a;
-        public static final int src_components_slider_img_ic_home_black_24dp=0x7f02004b;
-        public static final int src_components_slider_img_ic_navigation_header_notification=0x7f02004c;
-        public static final int src_components_slider_img_ic_people_black_24dp=0x7f02004d;
-        public static final int src_components_slider_img_ic_settings_black_24dp=0x7f02004e;
-        public static final int src_components_slider_img_ic_shop_black_24dp=0x7f02004f;
-        public static final int src_components_slider_img_ic_star_black_24dp=0x7f020050;
-        public static final int src_components_slider_img_ic_switch_night=0x7f020051;
-        public static final int src_components_slider_img_ic_user_male_border=0x7f020052;
-        public static final int src_image_splash_1=0x7f020053;
-        public static final int src_image_splash_income_2=0x7f020054;
+        public static final int src_components_slider_img_cat=0x7f020046;
+        public static final int src_components_slider_img_face=0x7f020047;
+        public static final int src_components_slider_img_ic_account_balance_wallet_black_24dp=0x7f020048;
+        public static final int src_components_slider_img_ic_color_lens_black_24dp=0x7f020049;
+        public static final int src_components_slider_img_ic_file_download_black_24dp=0x7f02004a;
+        public static final int src_components_slider_img_ic_history_black_24dp=0x7f02004b;
+        public static final int src_components_slider_img_ic_home_black_24dp=0x7f02004c;
+        public static final int src_components_slider_img_ic_navigation_header_notification=0x7f02004d;
+        public static final int src_components_slider_img_ic_people_black_24dp=0x7f02004e;
+        public static final int src_components_slider_img_ic_settings_black_24dp=0x7f02004f;
+        public static final int src_components_slider_img_ic_shop_black_24dp=0x7f020050;
+        public static final int src_components_slider_img_ic_star_black_24dp=0x7f020051;
+        public static final int src_components_slider_img_ic_switch_night=0x7f020052;
+        public static final int src_components_slider_img_ic_user_male_border=0x7f020053;
+        public static final int src_image_splash_1=0x7f020054;
+        public static final int src_image_splash_income_2=0x7f020055;
     }
     public static final class id {
         public static final int action0=0x7f0d0057;

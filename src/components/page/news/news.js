@@ -129,7 +129,7 @@ class News extends Component {
           onPress={this._onPressFeedItem.bind(this,rowDate) }
           >
           <View style={styles.row}>
-              <Text style={styles.title}>{rowDate.title.length>14?(rowDate.title.substring(0,14)+'...'):rowDate.title}</Text>
+              <Text style={styles.title}>{rowDate.title.length>9?(rowDate.title.substring(0,9)+'...'):rowDate.title}</Text>
               <Text style={styles.time}>{rowDate.url.substring(0,16)}</Text>
           </View>
           <Text style={styles.text}>{rowDate.abstract}</Text>
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     paddingRight:20,
     backgroundColor: '#FAFAFA',
     borderBottomWidth:1,
-    borderBottomColor:'gray',
+    borderBottomColor:'lightgray',
     overflow:'hidden'
   },
   listView: {

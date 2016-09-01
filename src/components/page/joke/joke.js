@@ -129,7 +129,7 @@ class Joke extends Component {
           onPress={this._onPressFeedItem.bind(this,rowDate) }
           >
           <View style={styles.row}>
-              <Text style={styles.title}>{rowDate.title.length>14?(rowDate.title.substring(0,14)+'...'):rowDate.title}</Text>
+              <Text style={styles.title}>{rowDate.title.length>9?(rowDate.title.substring(0,9)+'...'):rowDate.title}</Text>
               <Text style={styles.time}>{rowDate.ct.substring(0,16)}</Text>
           </View>
           <Text style={styles.text}>{rowDate.text}</Text>
@@ -139,7 +139,7 @@ class Joke extends Component {
   }
 
     _onPressFeedItem(rowDate) {
-    InteractionManager.runAfterInteractions(() => {
+
           this.props.navigator.push({
               name: 'JokeDetial',
               component: JokeDetail,
@@ -148,21 +148,20 @@ class Joke extends Component {
                     rowDate: rowDate
               }
           })
-    });
-  }
+     }
 }
 
 const styles = StyleSheet.create({
   container: {
     width: Const.window.width ,
-    height: Const.window.width/3 ,
+    height: (Const.window.height-100)/4 ,
     justifyContent: 'center',
     alignItems: 'center',
     paddingLeft:20,
     paddingRight:20,
     backgroundColor: '#FAFAFA',
     borderBottomWidth:1,
-    borderBottomColor:'gray',
+    borderBottomColor:'lightgray',
     overflow:'hidden'
   },
   listView: {
@@ -181,7 +180,8 @@ const styles = StyleSheet.create({
     marginTop:20,
     fontSize:14,
     height:40,
-    overflow:'hidden'
+    overflow:'hidden',
+    lineHeight:20,
   },
   list: {
     justifyContent: 'center',

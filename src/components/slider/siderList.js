@@ -8,13 +8,19 @@ import {
     View,
     Image,
     TouchableHighlight,
+    Navigator
 } from 'react-native';
 import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter';
 
 import style from './listStyle';
 
-import DownManager from '../downManager/downManager';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import All from '../all/test.js';
+import Dynamic from '../myDynamics/test.js';
+import Mail from '../myMails/test.js';
+import Article from '../myArticles/test.js';
+import Friend from '../myFriends/test.js';
+import Setting from '../Settings/test.js';
 
 //之前用的闭包计数器，但是不一定准确，所以放弃使用
 var Counter=(function(){
@@ -54,18 +60,37 @@ class Cell extends Component{
     _press(){
         RCTDeviceEventEmitter.emit("closeDrawer");
         let _navi = {};
-        switch (this.index){
+        // debugger;
+        switch (this.props.index){
             case 1:_navi = {
-                name: 'download',
-                component: DownManager
+                component: All,
+                params:{},
+                sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
             };break;
-            case 7:_navi = {
-                name: 'theme',
-                component: Common
+            case 2:_navi = {
+                component: Dynamic,
+                params:{},
+                sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
             };break;
-            case 8:_navi = {
-                name: 'setting',
-                component: Common
+            case 3:_navi = {
+                component: Mail,
+                params:{},
+                sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+            };break;
+            case 4:_navi = {
+                component: Article,
+                params:{},
+                sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+            };break;
+             case 5:_navi = {
+                component: Friend,
+                params:{},
+                sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+            };break;
+             case 6:_navi = {
+                component: Setting,
+                params:{},
+                sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
             };break;
         }
         this.props.navi.push(_navi);
@@ -95,7 +120,7 @@ class list extends Component{
         return (
             <View style={style.container}>
                 <View style={style.group}>
-                    <Cell name={"首页"} index={0}/>
+                    <Cell name={"首页"} index={0} navi={this.props.navi} />
                     <Cell name={"全部版面"} index={1} navi={this.props.navi}/>
                 </View>
                 <View style={style.group}>
