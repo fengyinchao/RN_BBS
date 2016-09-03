@@ -27,11 +27,13 @@ let pictureReducer = (state = initialState, action) => {
                 isLoading: false,
             })
         //重置状态
-        case types.RESET_STATE:
-            return Object.assign({},state,{
-                PictureList:[],
-                isLoading:true,
-            })
+        // case types.RESET_PICTURE_LIST:
+        //     return Object.assign({},{
+        //         PictureList:action.pictureList,
+        //         isLoading: true,
+        //         isLoadMore: false,
+        //         isRefreshing: false,
+        //     })
         default:
             return state;
     }

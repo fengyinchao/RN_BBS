@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 
     navigationBarContainer: {
         flexDirection: 'row',
-        height: 80,
+        height: 60,
         alignItems: 'center',
         backgroundColor: '#2196F3',
         paddingLeft:20,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     rightIcon:{
         flexDirection:'row',
         position:'absolute',
-        top:30,
+        top:20,
         right:0
     }
 })

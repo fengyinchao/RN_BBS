@@ -18,7 +18,7 @@ class bbs extends Component{
     render(){
         return(
             <Navigator
-                initialRoute={{name:"main",component:main}}
+                initialRoute={{name:"splash",component:splash}}
                 renderScene={
                     (route,navigator) =>{
                         _navigator = navigator;
@@ -27,7 +27,7 @@ class bbs extends Component{
                         return <Component {...route.params} navigator={navigator} />
                     }
                 }
-                configureScene={() => Navigator.SceneConfigs.FloatFromRight}
+                configureScene={() => Navigator.SceneConfigs.PushFromRight}
             />
         );
     }

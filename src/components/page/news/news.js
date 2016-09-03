@@ -17,6 +17,7 @@ import {
   InteractionManager,
   RefreshControl,
   Navigator,
+  Platform
 } from 'react-native';
 
 import {connect} from 'react-redux'
@@ -28,6 +29,12 @@ import NewsDetail from './newsDetail';
 import {
   news,
 } from '../../../actions/newsAction';
+if (Platform.OS === 'android') {
+  var RefreshLayoutConsts = require('UIManager').AndroidSwipeRefreshLayout.Constants;
+} else {
+  var RefreshLayoutConsts = {SIZE: {}};
+}
+
 let page = 1;
 let isLoadMore = false;
 let isRefreshing = false;
@@ -46,10 +53,9 @@ class News extends Component {
   }
 
   componentDidMount() {
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch} = this.props;
-      dispatch(news(page, isLoadMore, isRefreshing, isLoading));
-    })
+   
+      const {news} = this.props;
+      news(page, isLoadMore, isRefreshing, isLoading);
   }
 
   render() {
@@ -77,7 +83,9 @@ class News extends Component {
               <RefreshControl
                 onRefresh={this._onRefresh.bind(this) }
                 title="正在加载中……"
-                color="#ccc"
+                refreshing={News.isRefreshing}
+                colors={["#ff0000"]}
+                size={RefreshLayoutConsts.SIZE.LARGE}
                 />
             }
             />
@@ -102,23 +110,22 @@ class News extends Component {
   // 下拉刷新
   _onRefresh() {
     if (isLoadMore) {
-      const {dispatch, News} = this.props;
+      const {news, News} = this.props;
       isLoadMore = false;
       isRefreshing = true;
-      dispatch(news('', isLoadMore, isRefreshing, isLoading));
+      isLoading=false;
+      news('', isLoadMore, isRefreshing, isLoading);
     }
   }
 
   // 上拉加载
   _onEndReach() {
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch, News} = this.props;
+    // alert('end')
+      const {news, News} = this.props;
       let newsList = News.NewsList;
       isLoadMore = true;
       isLoading = false;
-      offest = newsList[newsList.length - 1].seq
-      dispatch(news(page, isLoadMore, isRefreshing, isLoading));
-    })
+      news(++page, isLoadMore, isRefreshing, isLoading);
   }
 
   _renderRow(rowDate) {
@@ -129,8 +136,7 @@ class News extends Component {
           onPress={this._onPressFeedItem.bind(this,rowDate) }
           >
           <View style={styles.row}>
-              <Text style={styles.title}>{rowDate.title.length>9?(rowDate.title.substring(0,9)+'...'):rowDate.title}</Text>
-              <Text style={styles.time}>{rowDate.url.substring(0,16)}</Text>
+              <Text style={styles.title}>{rowDate.title.length>18?(rowDate.title.substring(0,18)+'...'):rowDate.title}</Text>
           </View>
           <Text style={styles.text}>{rowDate.abstract}</Text>
         </TouchableOpacity>
@@ -139,7 +145,6 @@ class News extends Component {
   }
 
     _onPressFeedItem(rowDate) {
-    InteractionManager.runAfterInteractions(() => {
           this.props.navigator.push({
               name: 'NewsDetial',
               component: NewsDetail,
@@ -148,14 +153,13 @@ class News extends Component {
                     rowDate: rowDate
               }
           })
-    });
-  }
+    }
 }
 
 const styles = StyleSheet.create({
   container: {
     width: Const.window.width ,
-    height: Const.window.width/3 ,
+    height: (Const.window.height-100)/4 ,
     justifyContent: 'center',
     alignItems: 'center',
     paddingLeft:20,
@@ -167,7 +171,7 @@ const styles = StyleSheet.create({
   },
   listView: {
     backgroundColor: '#F5FCFF',
-    height: Const.window.height - 44 - 60 - 20,
+    height: Const.window.height ,
   },
   title: {
     color: 'black',
@@ -212,4 +216,4 @@ export default connect((state) => {
     return {
         News
     }
-})(News);
+},{news:news})(News);

@@ -5,20 +5,14 @@ import Util from '../components/common/utils';
 
 export let picture = (tag, offest, limit, isLoadMore, isRefreshing, isLoading) => {
     let URL = 'http://api.huaban.com/fm/wallpaper/pins?limit=';
-    // let URL='http://api.huaban.com/fm/wallpaper/tags';
      if (limit) URL += limit;
     offest ? URL += '&max=' + offest : URL += '&max=';
     tag ? URL += '&tag=' + encode_utf8(tag) : URL += '&tag='
-    // alert(URL)
     return dispatch => {
         dispatch(feachPictureList(isLoadMore, isRefreshing, isLoading));
         return Util.get(URL, (response) => {
-             // alert(JSON.stringify(response.pins))
-             // debugger
             dispatch(receivePictureList(response.pins))
         }, (error) => {
-            // console.log('加载首页数据error==>' + error);
-            // // debugger
             dispatch(receivePictureList([]));
         });
 
@@ -43,5 +37,11 @@ let receivePictureList = (pictureDetailList) => {
     return {
         type: types.RECEIVE_PICTUREDETAIL_LIST,
         pictureDetailList: pictureDetailList,
+    }
+}
+export let resetPictureList = () => {
+    return {
+        type: types.RESET_PICTUREDETAIL_LIST,
+        pictureDetailList: [],
     }
 }

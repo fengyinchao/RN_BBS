@@ -18,6 +18,7 @@ import {
   RefreshControl,
   Navigator,
   PixelRatio,
+  Platform
 } from 'react-native';
 
 import {connect} from 'react-redux'
@@ -34,6 +35,12 @@ let num=5;
 let isLoadMore = false;
 let isRefreshing = false;
 let isLoading = true;
+if (Platform.OS === 'android') {
+  var RefreshLayoutConsts = require('UIManager').AndroidSwipeRefreshLayout.Constants;
+} else {
+  var RefreshLayoutConsts = {SIZE: {}};
+}
+
 class Gossip extends Component {
 
   constructor(props) {
@@ -48,10 +55,9 @@ class Gossip extends Component {
   }
 
   componentDidMount() {
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch} = this.props;
-      dispatch(gossip(page, num, isLoadMore, isRefreshing, isLoading));
-    })
+    
+      const {gossip} = this.props;
+      gossip(page, num, isLoadMore, isRefreshing, isLoading);
   }
 
   
@@ -66,31 +72,31 @@ class Gossip extends Component {
   }
 
   _onScroll() {
-    
+        // alert('scroll')
     if (!isLoadMore) isLoadMore = true;
   }
 
   // 下拉刷新
   _onRefresh() {
-    if (isLoadMore) {
-      const {dispatch, Gossip} = this.props;
+    alert('下拉了')
+
+      const {gossip, Gossip} = this.props;
       isLoadMore = false;
       isRefreshing = true;
-      dispatch(gossip('', isLoadMore, isRefreshing, isLoading));
-    }
+      isLoading=false;
+      gossip(1, isLoadMore, isRefreshing, isLoading);
+    
   }
 
   // 上拉加载
   _onEndReach() {
     // alert('onendreach')
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch, Gossip} = this.props;
+      const {gossip, Gossip} = this.props;
       let gossipList = Gossip.GossipList;
       isLoadMore = true;
       isLoading = false;
       // offest = gossipList[gossipList.length - 1].seq
-      dispatch(gossip(page, isLoadMore, isRefreshing, isLoading));
-    })
+      gossip(++page, isLoadMore, isRefreshing, isLoading);
   }
 
 render() {
@@ -104,7 +110,7 @@ render() {
             dataSource={this.state.dataSource.cloneWithRows(gossipList) }
             renderRow={this._renderRow}
             enableEmptySections={true}
-            initialListSize= {5}
+            initialListSize= {10}
             onScroll={this._onScroll}
             onEndReached={this._onEndReach.bind(this) }
             onEndReachedThreshold={(Const.window.height-105)/4}
@@ -113,8 +119,11 @@ render() {
             refreshControl={
               <RefreshControl
                 onRefresh={this._onRefresh.bind(this) }
-                title="正在加载中……"
-                color="#ccc"
+                refreshing={Gossip.isRefreshing}
+                // title={"Loading..."}
+                colors={["#ff0000"]}
+                size={RefreshLayoutConsts.SIZE.LARGE}
+                // progressBackgroundColor="blue"
                 />
             }
             />
@@ -217,4 +226,4 @@ export default connect((state) => {
     return {
         Gossip
     }
-})(Gossip);
+},{gossip:gossip})(Gossip);

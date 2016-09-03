@@ -47,8 +47,8 @@ class Picture extends Component {
 
   componentDidMount() {
     InteractionManager.runAfterInteractions(() => {
-      const {dispatch} = this.props;
-      dispatch(picture(page, isLoadMore, isRefreshing, isLoading));
+      const {picture} = this.props;
+      picture(page, isLoadMore, isRefreshing, isLoading);
     })
   }
 
@@ -66,60 +66,11 @@ class Picture extends Component {
             dataSource={this.state.dataSource.cloneWithRows(pictureList) }
             renderRow={this._renderRow}
             contentContainerStyle={styles.list}
-            // style={{flexDirection:'row'}}
             enableEmptySections={true}
-            onEndReached={this._onEndReach.bind(this) }
-            onEndReachedThreshold={(Const.window.height-105)/4}
-            initialListSize= {14}
-            // pageSize={2}
-            onScroll={this._onScroll}
-            style={styles.listView}
-            refreshControl={
-              <RefreshControl
-                onRefresh={this._onRefresh.bind(this) }
-                title="正在加载中……"
-                color="#ccc"
-                />
-            }
             />
         }
       </View>
     );
-  }
-
-
-
-  _renderFooter() {
-    const {Picture} = this.props;
-    if (Picture.isLoadMore) {
-      return <LoadMoreFooter />
-    }
-  }
-
-  _onScroll() {
-    if (!isLoadMore) isLoadMore = true;
-  }
-
-  // 下拉刷新
-  _onRefresh() {
-    if (isLoadMore) {
-      const {dispatch, Picture} = this.props;
-      isLoadMore = false;
-      isRefreshing = true;
-      dispatch(picture('', isLoadMore, isRefreshing, isLoading));
-    }
-  }
-
-  // 上拉加载
-  _onEndReach() {
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch, Picture} = this.props;
-      let pictureList = Picture.PictureList;
-      isLoadMore = true;
-      isLoading = false;
-      offest = pictureList[pictureList.length - 1].seq
-      dispatch(picture(page, isLoadMore, isRefreshing, isLoading));
-    })
   }
 
   _renderRow(rowDate) {
@@ -138,7 +89,6 @@ class Picture extends Component {
   }
 
     _onPressFeedItem(rowDate) {
-        InteractionManager.runAfterInteractions(() => {
               this.props.navigator.push({
                   name: 'PictureDetail',
                   component: PictureDetail,
@@ -147,11 +97,10 @@ class Picture extends Component {
                         rowDate: rowDate
                   }
               })
-        });
       }
 }
 function get(){
-  var h=parseInt(Const.window.height-120)/5;
+  var h=parseInt(Const.window.height-145)/5;
   alert(h)
   return h;
 }
@@ -163,9 +112,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     // marginLeft:10,
-    borderWidth:1,
-    borderColor:'white',
-    backgroundColor: 'lightblue',
+    borderWidth:0.5,
+    borderColor:'lightbgray',
+    backgroundColor: 'white',
     overflow:'hidden'
   },
   listView: {
@@ -215,4 +164,4 @@ export default connect((state) => {
     return {
         Picture
     }
-})(Picture);
+},{picture:picture})(Picture);

@@ -62,6 +62,7 @@ class Cell extends Component{
         let _navi = {};
         // debugger;
         switch (this.props.index){
+            case 0:return;
             case 1:_navi = {
                 component: All,
                 params:{},

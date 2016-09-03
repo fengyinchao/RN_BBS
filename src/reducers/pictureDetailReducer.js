@@ -31,10 +31,12 @@ let pictureDetailReducer = (state = initialState, action) => {
                 isLoading: false,
             })
 
-        case types.RESET_PICTUREDETAIL_STAT:
-            return Object.assign({},state,{
+        case types.RESET_PICTUREDETAIL_LIST:
+            return Object.assign({},{
                 PictureDetailList:[],
                 isLoading:true,
+                isLoadMore: false,
+                isRefreshing: false,
             })
         default:
             return state;

@@ -3,10 +3,10 @@
 import * as types from './actionTypes';
 import Util from '../components/common/utils';
 
-export let gossip = (page,num, isLoadMore, isRefreshing, isLoading) => {
-    let URL = 'http://api.tianapi.com/huabian/?key=ad97b50c8552dbbacead1c7c4663058d&num=20';
-    // if (page) URL += page;
-    // URL+='&num=';
+export let gossip = (page,isLoadMore, isRefreshing, isLoading) => {
+    let URL = 'http://api.tianapi.com/huabian/?key=ad97b50c8552dbbacead1c7c4663058d&num=10&page=';
+    if (page) URL += page;
+    URL+='&num=';
     // if(num) URL+=num;
     // console.log(URL)
     

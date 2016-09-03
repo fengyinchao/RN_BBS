@@ -17,6 +17,7 @@ import {
   InteractionManager,
   RefreshControl,
   Navigator,
+  Platform
 } from 'react-native';
 
 import {connect} from 'react-redux'
@@ -32,11 +33,20 @@ let page = 1;
 let isLoadMore = false;
 let isRefreshing = false;
 let isLoading = true;
+
+if (Platform.OS === 'android') {
+  var RefreshLayoutConsts = require('UIManager').AndroidSwipeRefreshLayout.Constants;
+} else {
+  var RefreshLayoutConsts = {SIZE: {}};
+}
+
 class Joke extends Component {
 
   constructor(props) {
     super(props); //这一句不能省略，照抄即可
     // debugger
+    // debugger
+    //    console.log(('this.props'+this.props));
     this._renderRow = this._renderRow.bind(this);
     this.state = {
       dataSource: new ListView.DataSource({
@@ -46,10 +56,12 @@ class Joke extends Component {
   }
 
   componentDidMount() {
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch} = this.props;
-      dispatch(joke(page, isLoadMore, isRefreshing, isLoading));
-    })
+   
+        // debugger
+       // console.log(('this.props'+this.props));
+      const {joke} = this.props;
+      joke(page, isLoadMore, isRefreshing, isLoading);
+
   }
 
   render() {
@@ -77,7 +89,9 @@ class Joke extends Component {
               <RefreshControl
                 onRefresh={this._onRefresh.bind(this) }
                 title="正在加载中……"
-                color="#ccc"
+                refreshing={Joke.isRefreshing}
+                colors={["#ff0000"]}
+                size={RefreshLayoutConsts.SIZE.LARGE}
                 />
             }
             />
@@ -101,24 +115,22 @@ class Joke extends Component {
 
   // 下拉刷新
   _onRefresh() {
-    if (isLoadMore) {
-      const {dispatch, Joke} = this.props;
+    // alert('xiala')
+      const {joke, Joke} = this.props;
       isLoadMore = false;
       isRefreshing = true;
-      dispatch(joke('', isLoadMore, isRefreshing, isLoading));
-    }
+      isLoading=false;
+      joke(1, isLoadMore, isRefreshing, isLoading);
   }
 
   // 上拉加载
   _onEndReach() {
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch, Joke} = this.props;
+      // alert('end')
+      const {joke, Joke} = this.props;
       let jokeList = Joke.JokeList;
       isLoadMore = true;
       isLoading = false;
-      offest = jokeList[jokeList.length - 1].seq
-      dispatch(joke(page, isLoadMore, isRefreshing, isLoading));
-    })
+      joke(++page, isLoadMore, isRefreshing, isLoading);
   }
 
   _renderRow(rowDate) {
@@ -129,7 +141,7 @@ class Joke extends Component {
           onPress={this._onPressFeedItem.bind(this,rowDate) }
           >
           <View style={styles.row}>
-              <Text style={styles.title}>{rowDate.title.length>9?(rowDate.title.substring(0,9)+'...'):rowDate.title}</Text>
+              <Text style={styles.title}>{rowDate.title.length>7?(rowDate.title.substring(0,7)+'...'):rowDate.title}</Text>
               <Text style={styles.time}>{rowDate.ct.substring(0,16)}</Text>
           </View>
           <Text style={styles.text}>{rowDate.text}</Text>
@@ -166,7 +178,7 @@ const styles = StyleSheet.create({
   },
   listView: {
     backgroundColor: '#F5FCFF',
-    height: Const.window.height - 44 - 60 - 20,
+    height: Const.window.height ,
   },
   title: {
     color: 'black',
@@ -212,4 +224,4 @@ export default connect((state) => {
     return {
         Joke
     }
-})(Joke);
+},{joke:joke})(Joke);

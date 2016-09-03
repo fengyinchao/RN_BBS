@@ -26,7 +26,7 @@ import LoadMoreFooter from '../../common/LoadMoreFooter';
 import HeaderView from '../../common/HeaderView';
 // import PictureDetail from './pictureDetail';
 import {
-  picture,
+  picture,resetPictureList
 } from '../../../actions/pictureDetailAction';
 let tag = 1;
 let isLoadMore = false;
@@ -46,24 +46,23 @@ class PictureDetail extends Component {
   }
 
   componentDidMount() {
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch,rowDate} = this.props;
-      dispatch(picture(rowDate.tag_name,isLoadMore, isRefreshing, isLoading));
-    })
+  
+      const {picture,rowDate} = this.props;
+      picture(rowDate.tag_name,isLoadMore, isRefreshing, isLoading);
   }
    
   render() {
-   const { PictureDetail } = this.props;
+   const { PictureDetail ,rowDate} = this.props;
     // console.log(('this.props'+JSON.stringify(this.props)));
     // debugger
     let pictureDetailList = PictureDetail.PictureDetailList;
    // alert('picturelist='+JSON.stringify(pictureDetailList))
-    let titleName = '最新';
+    let titleName = rowDate.tag_name;
     return (
       <View>
         <HeaderView title={titleName}
         leftIcon={'arrow-left'}
-        leftIconAction={() => this.props.navigator.pop() }
+        leftIconAction={this.back.bind(this) }
         rightIcon={['heart','reply','share-alt']}
         />
         {PictureDetail.isLoading ? <Loading /> :
@@ -104,25 +103,26 @@ class PictureDetail extends Component {
   // 下拉刷新
   _onRefresh() {
     if (isLoadMore) {
-      const {dispatch, PictureDetail} = this.props;
+      const {picture, PictureDetail} = this.props;
       isLoadMore = false;
       isRefreshing = true;
-      dispatch(picture('', isLoadMore, isRefreshing, isLoading));
+      picture('', isLoadMore, isRefreshing, isLoading);
     }
   }
   back(){
+    const {resetPictureList}=this.props;
+    resetPictureList();
     this.props.navigator.pop();
   }
   // 上拉加载
   _onEndReach() {
-    InteractionManager.runAfterInteractions(() => {
-      const {dispatch, PictureDetail} = this.props;
+    
+      const {picture, PictureDetail} = this.props;
       let pictureDetailList = PictureDetail.PictureDetailList;
       isLoadMore = true;
       isLoading = false;
-      offest = pictureDetailList[pictureDetailList.length - 1].seq
-      dispatch(picture(tag, isLoadMore, isRefreshing, isLoading));
-    })
+      isLoading=false;
+      picture(tag, isLoadMore, isRefreshing, isLoading);
   }
 
   _renderRow(rowDate) {
@@ -146,19 +146,19 @@ class PictureDetail extends Component {
 
 const styles = StyleSheet.create({
 container: {
-    width: Const.window.width / 3,
-    height: Const.window.width / 2,
+    width: Const.window.width / 2,
+    height: (Const.window.height -100)/ 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: 'white',
   },
   listView: {
-    backgroundColor: '#F5FCFF',
-    height: Const.window.height - 44 - 20,
+    // backgroundColor: '#F5FCFF',
+    height: Const.window.height ,
   },
   thumbnail: {
-    width: Const.window.width ,
-    height: Const.window.width ,
+    width: Const.window.width/2-10 ,
+    height: (Const.window.height-100)/2-10,
 
   },
   list: {
@@ -167,17 +167,6 @@ container: {
     flexWrap: 'wrap',
     alignItems: 'center',
 
-  },
-  header: {
-    marginTop: 20,
-    height: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    backgroundColor: 'white',
-  },
-  title: {
-    color: 'black',
   },
 });
 
@@ -188,4 +177,4 @@ export default connect((state) => {
     return {
         PictureDetail
     }
-})(PictureDetail);
+},{picture:picture,resetPictureList:resetPictureList})(PictureDetail);

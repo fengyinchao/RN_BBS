@@ -4,7 +4,7 @@ import * as types from './actionTypes';
 import Util from '../components/common/utils';
 
 export let joke = (page, isLoadMore, isRefreshing, isLoading) => {
-    let URL = 'http://apis.baidu.com/showapi_open_bus/showapi_joke/joke_text?page=';
+    let URL = 'http://apis.baidu.com/showapi_open_bus/showapi_joke/joke_text?number=10&page=';
     if (page) URL += page;
     
     console.log(URL)
@@ -12,7 +12,7 @@ export let joke = (page, isLoadMore, isRefreshing, isLoading) => {
     return dispatch => {
         dispatch(feachJokeList(isLoadMore, isRefreshing, isLoading));
         return Util.gets(URL, (response) => {
-             // console.log(response.showapi_res_body.contentlist)
+             console.log(response.showapi_res_body.contentlist)
              // let res=response.showapi_res_body.contentlist;
              // res.forEach(function(item){
              //    let text=item.text;

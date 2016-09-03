@@ -461,7 +461,7 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f02003b
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f02003c
 int drawable abc_textfield_search_material 0x7f02003d
 int drawable node_modules_reactnative_libraries_customcomponents_navigationexperimental_assets_backicon 0x7f02003e
-int drawable notification_template_icon_bg 0x7f020056
+int drawable notification_template_icon_bg 0x7f020057
 int drawable src_components_main_img_ic_navigation_drawer 0x7f02003f
 int drawable src_components_page_hot_img_195916 0x7f020040
 int drawable src_components_page_hot_img_195918 0x7f020041
@@ -484,7 +484,8 @@ int drawable src_components_slider_img_ic_star_black_24dp 0x7f020051
 int drawable src_components_slider_img_ic_switch_night 0x7f020052
 int drawable src_components_slider_img_ic_user_male_border 0x7f020053
 int drawable src_image_splash_1 0x7f020054
-int drawable src_image_splash_income_2 0x7f020055
+int drawable src_image_splash_byhh3 0x7f020055
+int drawable src_image_splash_income_2 0x7f020056
 int id action0 0x7f0d0057
 int id action_bar 0x7f0d0047
 int id action_bar_activity_content 0x7f0d0000

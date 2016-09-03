@@ -34,7 +34,7 @@ class splash extends Component{
         return (
             <View style={{flex:1}}>
                 <StatusBar hidden={true}/>
-                <Image source={require('../../image/splash/income_2.jpg')} style={{width:width,height:height}}/>
+                <Image source={require('../../image/splash/byhh3.jpg')} resizeMode={'cover'} style={{width:width,height:height}}/>
             </View>
         );
     }
