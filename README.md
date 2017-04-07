@@ -1,6 +1,6 @@
-#RN_BBS
+# RN_BBS
 This is an app developmented by React Native & Redux for Android
-#演示
+# 演示
 ![](./BBS.gif)
 # 优点
 + 全原生RN组件，无第三方组件（字体图标除外）
@@ -12,6 +12,6 @@ This is an app developmented by React Native & Redux for Android
 + 首页下的各板块内容没有做按需加载，而是初始化时加载了所有内容
 + 功能上，如下载、收藏、转发等没有开发
 
-#参考
+# 参考
 + [https://github.com/jiangqqlmj/Bilibili-React-Native](https://github.com/jiangqqlmj/Bilibili-React-Native)
 + [https://github.com/JasonStu/RN-BiZhi](https://github.com/JasonStu/RN-BiZhi)
